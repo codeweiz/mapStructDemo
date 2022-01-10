@@ -1,6 +1,7 @@
 package cn.microboat.mapstructdemo;
 
 import cn.microboat.mapstructdemo.enums.GenderEnum;
+import cn.microboat.mapstructdemo.mapper.IStudentMapper;
 import cn.microboat.mapstructdemo.mapper.StudentMapper;
 import cn.microboat.mapstructdemo.pojo.dto.StudentDTO;
 import cn.microboat.mapstructdemo.pojo.po.Student;
@@ -170,6 +171,13 @@ class MapStructDemoApplicationTests {
         Date date = new Date();
         String s = date2Format(date);
         System.out.println(s);
+    }
+
+    @Test
+    void test08() {
+        Student student = new Student().setId("1").setName("赵六").setHeight(190.1).setAdmissionTime(new Date()).setAge(23).setGender("1");
+        StudentDTO studentDTO = IStudentMapper.INSTANCE.entity2Model(student);
+        System.out.println(studentDTO);
     }
 
 
